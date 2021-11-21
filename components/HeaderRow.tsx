@@ -11,7 +11,7 @@ export interface Props {
 export default function HeaderRow (props: Props) {
     return (
         <View style={styles.rightFloat}>
-            <FontAwesomeIcon icon={ faGavel } size={24}></FontAwesomeIcon>
+            <FontAwesomeIcon icon={ faGavel } size={28}></FontAwesomeIcon>
             <Text style={styles.powerLabel}>
                 {props.user_power}
             </Text>
@@ -23,13 +23,15 @@ const styles = StyleSheet.create({
     "rightFloat": {
         flexDirection: "row-reverse",
         flexGrow: 0,
-        margin: 6,
+        marginTop: 30,
+        marginHorizontal: 10,
+        marginBottom: 10,
         alignItems: "center"
     },
     "powerLabel": {
         padding: 4,
         fontWeight: "bold",
-        fontSize: 20
+        fontSize: 24
     },
     "gavelIcon": {
         padding: 8,

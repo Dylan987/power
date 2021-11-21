@@ -4,13 +4,16 @@ import ProposalItem, { Proposal } from './ProposalItem';
 import { FlatGrid } from 'react-native-super-grid';
 
 export interface Props {
+    username: string;
+    election_id: number;
+    group_name: string;
     proposals: Proposal[]
 }
 
 export default function ProposalGrid(props: Props) {
-    const renderProposal = (item: any, color: any) => {
+    const renderProposal = (item: any, color: any, username: any, election_id: number) => {
         return (
-            <ProposalItem text={item.text} power={item.power} color={color} />
+            <ProposalItem {...item} color={color} username={username} electionId={election_id} />
         );
     }
 
@@ -25,7 +28,7 @@ export default function ProposalGrid(props: Props) {
         <View style={styles.container}>
             <FlatGrid 
                 data={props.proposals}
-                renderItem={({ item, index }) => renderProposal(item, colors[index])}
+                renderItem={({ item, index }) => renderProposal(item, colors[index], props.username, props.election_id)}
                 spacing={0}
                 itemDimension={150}
             />
