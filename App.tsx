@@ -1,13 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import VoteScreen from './components/VoteScreen';
 
 export default function App() {
+  const sampleData = {
+    "user_power": 80,
+    "proposals": [
+      {
+        "text": "football",
+        "power": 20
+      },
+      {
+        "text": "baseball",
+        "power": 20
+      },
+      {
+        "text": "ice skating",
+        "power": 30
+      },
+      {
+        "text": "hockey",
+        "power": 40
+      },
+    ] 
+  }
   return (
-    <View style={styles.container}>
-      <Text>Welcome to power</Text>
-      <StatusBar style="auto" />
-    </View>
+    <VoteScreen user_power={sampleData.user_power} proposals={sampleData.proposals}/>
   );
 }
 
